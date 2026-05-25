@@ -22,7 +22,7 @@ const startServer = async () => {
   app.set("io", io);
   registerSocketHandlers(io);
 
-  server.listen(env.port, () => {
+  server.listen(env.port, "0.0.0.0", () => {
     console.log(`QuickKart API running on port ${env.port}`);
   });
 };
