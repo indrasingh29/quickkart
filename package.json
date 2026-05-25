@@ -1,0 +1,15 @@
+{
+  "name": "quickkart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-ready MERN quick-commerce platform with customer, admin, delivery, and API apps.",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client && npm install --prefix admin-panel && npm install --prefix delivery-app",
+    "dev": "concurrently \"npm:dev --prefix server\" \"npm:dev --prefix client\" \"npm:dev --prefix admin-panel\" \"npm:dev --prefix delivery-app\"",
+    "build": "npm run build --prefix client && npm run build --prefix admin-panel && npm run build --prefix delivery-app",
+    "seed": "npm run seed --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
