@@ -12,6 +12,8 @@ import { sanitizeXss } from "./middleware/sanitize.middleware.js";
 
 const app = express();
 
+app.get("/health", (_req, res) => res.status(200).json({ status: "ok", service: "quickkart-api" }));
+
 app.use(helmet());
 app.use(cors({ origin: env.allowedOrigins, credentials: true }));
 app.use(express.json({ limit: "1mb" }));
@@ -29,7 +31,6 @@ app.use(
   })
 );
 
-app.get("/health", (_req, res) => res.json({ status: "ok", service: "quickkart-api" }));
 app.use("/api", routes);
 app.use(notFound);
 app.use(errorHandler);
